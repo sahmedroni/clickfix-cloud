@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClickFix.cloud | Expert IT Services</title>
+ <!-- EmailJS SDK -->
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+ <script type="text/javascript">
+     (function() {
+         emailjs.init("ySH2WUlutvJlB5DTS"); // Replace with your actual EmailJS public key
+     })();</script>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
     <style>
         :root {
@@ -1222,6 +1229,13 @@
             margin: 0 auto;
         }
 
+        .form-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    display: block;
+}
+
     </style>
 </head>
 <body>
@@ -1451,7 +1465,7 @@
                 <div class="tech-badge">Amazone AWS</div>
                 <div class="tech-badge">Artificial Intelligence</div>
                 <div class="tech-badge">Database</div>
-                <div class="tech-badge">Remote Monitoring</div>
+                <div class="tech-badge">Remote Monitoring</div>                    
             </div>
         </div>
     </section>
@@ -1467,7 +1481,7 @@
                     <div class="testimonial-content">
                         ClickFix fixed my Office network remotely. I didn't even leave my chair. They saved me hours of frustration and got our whole network running smoother than ever.
                     </div>
-                    <div class="testimonial-author">— Pioneer Casual Wear Ltd.</div>
+                    <div class="testimonial-author">— Pioneer casual Wear Ltd.</div>
                 </div>
                 <div class="testimonial-slide">
                     <div class="testimonial-content">
@@ -1953,6 +1967,69 @@ document.querySelectorAll('.contact-method').forEach(method => {
                 }, 2000);
             }, 1500);
         });
+
+
+        // ... existing code ...
+
+<!-- Contact Form Submission -->
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Show sending state
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    // Play sound
+    playClickSound();
+    
+
+
+
+    // Get form data
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const issue = formData.get('issue');
+    
+    try {
+        // Send email using EmailJS
+        const response = await emailjs.send(
+            'service_1go09ca', // EmailJS service ID
+            'template_8h42845', // EmailJS template ID
+            {
+                from_name: name,
+                from_email: email,
+                message: issue,
+                to_name: 'ClickFix.cloud Team'
+            },
+            'ySH2WUlutvJlB5DTS' // Replace with your actual EmailJS public key
+        );
+        
+        // Success
+        contactForm.reset();
+        formMessage.textContent = 'Message sent successfully! We\'ll get back to you ASAP. 🚀';
+        formMessage.classList.add('success');
+        
+    } catch (error) {
+        // Error handling
+        console.error('Email sending failed:', error);
+        formMessage.textContent = 'Oops! Something went wrong. Please try again or contact us directly.';
+        formMessage.classList.add('error');
+    } finally {
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.classList.remove('success', 'error');
+        }, 5000);
+    }
+});
+
+
 
 
 
