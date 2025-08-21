@@ -303,57 +303,58 @@ submitBtn.addEventListener('mouseleave', () => {
     submitBtn.style.background = 'linear-gradient(to right, #2563eb, #4f46e5)';
 });
 
-// Contact Form Submission
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
 
-    // Show sending state
-    const submitBtn = contactForm.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
+
+
+
+
+
+
 
     // Play sound
     playClickSound();
 
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const issue = formData.get('issue');
+    //Get year for footer.
+    
 
-    try {
-        // Send email using EmailJS
-        const response = await emailjs.send(
-            'service_1go09ca', // EmailJS service ID
-            'template_8h42845', // EmailJS template ID
-            {
-                from_name: name,
-                from_email: email,
-                message: issue,
-                to_name: 'ClickFix.cloud Team'
-            },
-            'ySH2WUlutvJlB5DTS' // Replace with your actual EmailJS public key
-        );
+    //Get form data
+    // const formData = new FormData(contactForm);
+    // const name = formData.get('name');
+    // const email = formData.get('email');
+    // const issue = formData.get('issue');
+
+    // try {
+       // Send email using EmailJS
+        // const response = await emailjs.send(
+            // 'service_1go09ca', // EmailJS service ID
+            // 'template_8h42845', // EmailJS template ID
+            // {
+                // from_name: name,
+                // from_email: email,
+                // message: issue,
+                // to_name: 'ClickFix.cloud Team'
+            // },
+            // 'ySH2WUlutvJlB5DTS' // Replace with your actual EmailJS public key
+        // );
 
         // Success
-        contactForm.reset();
-        formMessage.textContent = 'Message sent successfully! We\'ll get back to you ASAP. 🚀';
-        formMessage.classList.add('success');
-
-    } catch (error) {
-        // Error handling
-        console.error('Email sending failed:', error);
-        formMessage.textContent = 'Oops! Something went wrong. Please try again or contact us directly.';
-        formMessage.classList.add('error');
-    } finally {
-        // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        // contactForm.reset();
+        // formMessage.textContent = 'Message sent successfully! We\'ll get back to you ASAP. 🚀';
+        // formMessage.classList.add('success');
+// 
+    // } catch (error) {
+        //Error handling
+        // console.error('Email sending failed:', error);
+        // formMessage.textContent = 'Oops! Something went wrong. Please try again or contact us directly.';
+        // formMessage.classList.add('error');
+    // } finally {
+       // Reset button
+        // submitBtn.textContent = originalText;
+        // submitBtn.disabled = false;
 
         // Hide message after 5 seconds
-        setTimeout(() => {
-            formMessage.classList.remove('success', 'error');
-        }, 5000);
-    }
-});
+        // setTimeout(() => {
+            // formMessage.classList.remove('success', 'error');
+        // }, 5000);
+    // }
+// );
