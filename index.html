@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClickFix.cloud | Expert IT Services</title>
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("ySH2WUlutvJlB5DTS"); // Replace with your actual EmailJS public key
-        })();
-    </script>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖱️</text></svg>">
     <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="style.css"> 
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+    
 </head>
 <body>
     <!-- Floating Dark Mode Toggle -->
-    <button class="floating-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <button class="floating-toggle" id="themeToggle" aria-label="Toggle dark mode"> 
         🌙
     </button>
     
@@ -44,7 +39,7 @@
     <!-- Header with Scroll Progress Bar -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo" id="companyLogo">
+            <a href="./index.html" class="logo" id="companyLogo">
                 <span class="logo-text">
                     ClickFix<span class="cloud-part">.cloud</span>
                 </span>
@@ -72,7 +67,8 @@
                 <div class="hero-text">
                     <h1>Tech’s Broken? ClickFix It. </h1>
                     <p>Remote fixes, troubleshooting tools, and nerd-powered solutions. All in one click.</p>
-                    <a class="btn" href="#contact">Slide into our DMs</a>
+                    <a class="btn" href="#contact"> Slide into our DMs</a>
+                    <a class="btn" href="https://wa.me/8801711752194"><i class="fi fi-brands-whatsapp"></i></a>
                 </div>
                 <div class="hero-image">
                     <!-- New SVG IT equipment with animations -->
@@ -257,7 +253,7 @@
         </div>
         <div class="clients-grid">
             <div class="client-card">
-                <div class="client-logo"><img src="https://www.bangladeshyp.com/img/bd/e/1470652670_52304.bmp" style="width: 60px; height: 60px;"></div>
+                <div class="client-logo"><img src="https://pioneercasual.vercel.app/_next/image?url=https%3A%2F%2Fdrive.google.com%2Fuc%3Fexport%3Dview%26id%3D1DhnHxvr1Hcv9bb6_GSj7rNohcfDtGSXg&w=96&q=75" style="width: 60px; height: 60px;"></div>
                 <h3>Pioneer Casual Wear Ltd.</h3>
                 <p>Fashion & Apparel</p>
                 <div class="client-stats">
@@ -338,12 +334,14 @@
                     <div class="form-message" id="formMessage"></div>
                 </form> -->
 
-<form action="https://formsubmit.co/el/lehiri" method="POST" class="contact-form" id="contactForm">
+<form action="https://formsubmit.co/clickfixcloud@gmail.com" method="POST" class="contact-form" id="contactForm">
   <!-- Prevent bots -->
   <input type="text" name="_honey" style="display:none">
 
   <!-- Disable Captcha -->
   <input type="hidden" name="_captcha" value="false">
+  <!-- Redirect after submit (optional) -->
+  <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
 <div class="form-group">
   <label for="name">Name:</label>
   <input type="text" name="name" id="name" placeholder="Your Name" required> </div>
@@ -353,6 +351,8 @@
  <div class="form-group">
   <label for="message">Message:</label>
   <textarea name="message" id="message" placeholder="Your Message" required></textarea> </div>
+
+
   <button type="submit" class="btn submit-btn">Send Message</button>
 </form>
 
@@ -364,11 +364,19 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">ClickFix.cloud</div>
-                <div class="copyright">© 2025 ClickFix.cloud — Hosted in the cloud, fueled by caffeine ☕</div>
+                <div class="footer-logo">
+                    <a href="./index.html" class="logo" id="companyLogo">
+                    <span class="logo-text">
+                        ClickFix<span class="cloud-part">.cloud</span>
+                    </span>
+                    <span class="click-icon">🖱️</span>
+                    </a>
+            </div>
+                <div class="copyright">© <span id="year"></span> ClickFix.cloud — Hosted in the cloud, fueled by caffeine ☕</div>
             </div>
         </div>
     </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
     
     <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
